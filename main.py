@@ -35,7 +35,24 @@ class TtkinterApp:
             widget.destroy()
 
     def mainMenu(self):
-        pass
+        self.clear_frame()
+
+        bg_image = Image.open("background.jpg")
+
+        if bg_image.height > bg_image.width:
+            bg_image = bg_image.rotate(-90, expand=True)
+
+        bg_image = bg_image.resize((self.root.winfo.screenwidth(), self.root.winfo_screenheight()))
+        self.bg_photo = ImageTk.PhotoImage(bg_image)
+
+        bg_label = tk.Label(self.root, image=self.bg_photo)
+        bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+        start_button = tk.Button(self.root, text="Mulai", font=("Helvetica", 14, 'bold'), width=20, height=2, bg='#C0C0C0', fg='black', command=self.pages)
+        start_button,place(relx=0.5, rely=0.68, anchor='center')
+
+        exit_button = tk.Button(self.root, text="Keluar", font=("Helvetica", 10), bg='#C0C0C0', fg='black', command=self.root.destroy)
+        exit_button.place(relx=0.5, rely=0.75, anchor='center')
 
     def pages(self):
         self.clear_frame()
