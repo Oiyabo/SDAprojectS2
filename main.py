@@ -71,6 +71,9 @@ class TtkinterApp:
     def panduan(self):
         pass
 
+    def pagesDua(self):
+        pass
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = TtkinterApp(root)
