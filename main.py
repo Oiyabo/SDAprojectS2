@@ -65,10 +65,10 @@ class TtkinterApp:
         panduan_button = tk.Button(self.root,text="panduan", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.panduan)
         panduan_button.place(relx=0.88, rely=0.05, anchor='center')
     
-    def TentangKamiPage(self):
+    def intro(self):
         pass
 
-    def panduanPage(self):
+    def panduan(self):
         pass
 
 if __name__ == "__main__":
