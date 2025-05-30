@@ -42,7 +42,7 @@ class TtkinterApp:
         if bg_image.height > bg_image.width:
             bg_image = bg_image.rotate(-90, expand=True)
 
-        bg_image = bg_image.resize((self.root.winfo.screenwidth(), self.root.winfo_screenheight()))
+        bg_image = bg_image.resize((self.root.winfo_screenwidth(), self.root.winfo_screenheight()))
         self.bg_photo = ImageTk.PhotoImage(bg_image)
 
         bg_label = tk.Label(self.root, image=self.bg_photo)
@@ -70,7 +70,7 @@ class TtkinterApp:
         start_button = tk.Button(self.root, text="Mulai", font=("Helvetica", 25, 'bold'), width=20, height=1, bg="#00aeae", fg='#000000', command=self.pagesDua)
         start_button.place(relx=0.5, rely=0.8, anchor='center')  
 
-        back_button = tk.Button(self.root,text="Kembali", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.main_menu)
+        back_button = tk.Button(self.root,text="Kembali", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.mainMenu)
         back_button.place(relx=0.5, rely=0.88, anchor='center')
 
         exit_button = tk.Button(self.root,text="Keluar", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.root.destroy)
@@ -101,7 +101,7 @@ class TtkinterApp:
         btn_sb = tk.Button(frame, text="Score Board", command=None, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
         btn_sb.place(relx=0.5, rely=0.5, anchor='center')
         
-        btn_back = tk.Button(frame, text="Kembali", command=self.main_menu, font=("Helvetica", 12), width=10, fg='#FFFFFF', bg='#8B0000')
+        btn_back = tk.Button(frame, text="Kembali", command=self.mainMenu, font=("Helvetica", 12), width=10, fg='#FFFFFF', bg='#8B0000')
         btn_back.place(relx=0.5, rely=0.6, anchor='center')
 
 if __name__ == "__main__":
