@@ -86,7 +86,9 @@ class TtkinterApp:
         pass
 
     def panduan(self):
-        pass
+        self.clear_frame()
+        frame = tk.Frame(self.root, bg='#000000')
+        frame.pack(expand=True)
 
     def pagesDua(self):
         pass
