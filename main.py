@@ -98,10 +98,10 @@ class TtkinterApp:
         btn_intro = tk.Button(frame, text="Pengenalan", command=None, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
         btn_intro.place(relx=0.5, rely=0.4, anchor='center')
             
-        btn_sb = tk.Button(frame, text="Score Board", command=None, font=("Helvetica", 15), width= 15, height=2, fg='#000000', bg='#D3D3D3')
+        btn_sb = tk.Button(frame, text="Score Board", command=None, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
         btn_sb.place(relx=0.5, rely=0.5, anchor='center')
         
-        btn_back = tk.Button(frame, text="Kembali", command=self.main_menu, fg='#FFFFFF', bg='#8B0000')
+        btn_back = tk.Button(frame, text="Kembali", command=self.main_menu, font=("Helvetica", 12), width=10, fg='#FFFFFF', bg='#8B0000')
         btn_back.place(relx=0.5, rely=0.6, anchor='center')
 
 if __name__ == "__main__":
