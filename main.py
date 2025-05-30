@@ -30,6 +30,10 @@ class TtkinterApp:
         self.is_fullscreen = not self.is_fullscreen
         self.root.attributes("-fullscreen", self.is_fullscreen)
 
+    def clear_frame(self):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
     def mainMenu(self):
         pass
 
