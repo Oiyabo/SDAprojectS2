@@ -49,7 +49,7 @@ class TtkinterApp:
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         start_button = tk.Button(self.root, text="Mulai", font=("Helvetica", 14, 'bold'), width=20, height=2, bg='#C0C0C0', fg='black', command=self.pages)
-        start_button,place(relx=0.5, rely=0.68, anchor='center')
+        start_button.place(relx=0.5, rely=0.68, anchor='center')
 
         exit_button = tk.Button(self.root, text="Keluar", font=("Helvetica", 10), bg='#C0C0C0', fg='black', command=self.root.destroy)
         exit_button.place(relx=0.5, rely=0.75, anchor='center')
@@ -94,6 +94,15 @@ class TtkinterApp:
         self.clear_frame()
         frame = tk.Frame(self.root, bg='#000000')
         frame.pack(expand=True)
+
+        btn_intro = tk.Button(frame, text="Pengenalan", command=None, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
+        btn_intro.place(relx=0.5, rely=0.4, anchor='center')
+            
+        btn_sb = tk.Button(frame, text="Score Board", command=None, font=("Helvetica", 15), width= 15, height=2, fg='#000000', bg='#D3D3D3')
+        btn_sb.place(relx=0.5, rely=0.5, anchor='center')
+        
+        btn_back = tk.Button(frame, text="Kembali", command=self.main_menu, fg='#FFFFFF', bg='#8B0000')
+        btn_back.place(relx=0.5, rely=0.6, anchor='center')
 
 if __name__ == "__main__":
     root = tk.Tk()
