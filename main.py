@@ -91,7 +91,9 @@ class TtkinterApp:
         frame.pack(expand=True)
 
     def pagesDua(self):
-        pass
+        self.clear_frame()
+        frame = tk.Frame(self.root, bg='#000000')
+        frame.pack(expand=True)
 
 if __name__ == "__main__":
     root = tk.Tk()
