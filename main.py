@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 class TtkinterApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Aplikasi Gambar dan Fullscreen")
+        self.root.title("Project SDA")
         self.center_window(960, 360)
 
         #set otomatis layar ke fullscreen
