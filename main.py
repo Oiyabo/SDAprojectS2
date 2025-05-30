@@ -51,13 +51,13 @@ class TtkinterApp:
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         start_button = tk.Button(self.root, text="Mulai", font=("Helvetica", 25, 'bold'), width=20, height=1, bg="#00aeae", fg='#000000', command=self.pagesDua)
-        start_button.place(relx=0.5, rely=0.8, anchor='center')  # Sesuaikan rely
+        start_button.place(relx=0.5, rely=0.8, anchor='center')  
 
         back_button = tk.Button(self.root,text="Kembali", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.main_menu)
         back_button.place(relx=0.5, rely=0.88, anchor='center')
 
         exit_button = tk.Button(self.root,text="Keluar", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.root.destroy)
-        exit_button.place(relx=0.5, rely=0.93, anchor='center')  # Sesuaikan rely
+        exit_button.place(relx=0.5, rely=0.93, anchor='center') 
 
         about_button = tk.Button(self.root,text="Tentang kami", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.intro)
         about_button.place(relx=0.95, rely=0.05, anchor='center')
