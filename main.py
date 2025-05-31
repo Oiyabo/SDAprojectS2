@@ -8,17 +8,12 @@ class TtkinterApp:
         self.root.title("Project SDA")
         self.center_window(960, 360)
 
-        #set otomatis layar ke fullscreen
         self.is_fullscreen = True
         self.root.attributes("-fullscreen", self.is_fullscreen) 
-
-        # set tombol F11 untuk toggle fullscreen dan esc untuk keluar fullscreen
         self.root.bind("<F11>", self.toggle_fullscreen)
 
-        # jalanin dan buat page mainMenu
         self.mainMenu()
-    
-    # set layar ke tenga monitor menyesuaikan dengan ukuran
+
     def center_window(self, width, height):
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
@@ -38,7 +33,6 @@ class TtkinterApp:
         self.clear_frame()
 
         bg_image = Image.open("background.jpg")
-
         if bg_image.height > bg_image.width:
             bg_image = bg_image.rotate(-90, expand=True)
 
@@ -56,8 +50,8 @@ class TtkinterApp:
 
     def pages(self):
         self.clear_frame()
-        bg_image2 = Image.open("background2.jpg")
 
+        bg_image2 = Image.open("background2.jpg")
         if bg_image2.height > bg_image2.width:
             bg_image2 = bg_image2.rotate(-90, expand=True)
 
@@ -70,20 +64,52 @@ class TtkinterApp:
         start_button = tk.Button(self.root, text="Mulai", font=("Helvetica", 25, 'bold'), width=20, height=1, bg="#00aeae", fg='#000000', command=self.pagesDua)
         start_button.place(relx=0.5, rely=0.8, anchor='center')  
 
-        back_button = tk.Button(self.root,text="Kembali", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.mainMenu)
+        back_button = tk.Button(self.root, text="Kembali", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.mainMenu)
         back_button.place(relx=0.5, rely=0.88, anchor='center')
 
-        exit_button = tk.Button(self.root,text="Keluar", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.root.destroy)
+        exit_button = tk.Button(self.root, text="Keluar", font=("Helvetica", 13), bg='#C0C0C0', fg='black', command=self.root.destroy)
         exit_button.place(relx=0.5, rely=0.93, anchor='center') 
 
-        about_button = tk.Button(self.root,text="Tentang kami", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.intro)
+        about_button = tk.Button(self.root, text="Tentang Kami", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.intro)
         about_button.place(relx=0.95, rely=0.05, anchor='center')
 
-        panduan_button = tk.Button(self.root,text="panduan", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.panduan)
+        panduan_button = tk.Button(self.root, text="Panduan", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.panduan)
         panduan_button.place(relx=0.88, rely=0.05, anchor='center')
-    
+
     def intro(self):
-        pass
+        self.clear_frame()
+
+        image = Image.open("foto4.jpg")
+        if image.height > image.width:
+            image = image.rotate(-90, expand=True)
+
+        image = image.resize((self.root.winfo_screenwidth(), self.root.winfo_screenheight()))
+        self.bg_photo = ImageTk.PhotoImage(image)
+
+        bg_label = tk.Label(self.root, image=self.bg_photo)
+        bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+        self.animated_text_label = tk.Label(self.root, text="", font=("Helvetica", 16), fg='white', bg='black', justify='center')
+        self.animated_text_label.place(relx=0.5, rely=0.7, anchor='center')
+
+        self.full_intro_text = (
+            "Halo!\n"
+            "Selamat datang di aplikasi kami, Kelompok 10.\n"
+            "Anggota kami adalah:\n"
+            "M. Faris Adithya, Maulana Ramadhan, Keisha Aurel Ratu Assyifa, Palwa Abiyyu Jaya."
+        )
+        self.text_index = 0
+        self.animate_text()
+
+        back_button = tk.Button(self.root, text="Kembali", font=("Helvetica", 12), bg='#C0C0C0', fg='black', command=self.pages)
+        back_button.place(relx=0.5, rely=0.88, anchor='center')
+
+    def animate_text(self):
+        if self.text_index < len(self.full_intro_text):
+            current_text = self.full_intro_text[:self.text_index + 1]
+            self.animated_text_label.config(text=current_text)
+            self.text_index += 1
+            self.root.after(40, self.animate_text)
 
     def panduan(self):
         self.clear_frame()
@@ -95,7 +121,7 @@ class TtkinterApp:
         frame = tk.Frame(self.root, bg='#000000')
         frame.pack(expand=True)
 
-        btn_intro = tk.Button(frame, text="Pengenalan", command=None, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
+        btn_intro = tk.Button(frame, text="Pengenalan", command=self.intro, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
         btn_intro.place(relx=0.5, rely=0.4, anchor='center')
             
         btn_sb = tk.Button(frame, text="Score Board", command=None, font=("Helvetica", 15), width=15, height=2, fg='#000000', bg='#D3D3D3')
@@ -103,6 +129,7 @@ class TtkinterApp:
         
         btn_back = tk.Button(frame, text="Kembali", command=self.mainMenu, font=("Helvetica", 12), width=10, fg='#FFFFFF', bg='#8B0000')
         btn_back.place(relx=0.5, rely=0.6, anchor='center')
+
 
 if __name__ == "__main__":
     root = tk.Tk()
